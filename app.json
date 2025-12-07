@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "push-app",
-    "slug": "push-app",
+    "slug": "pushapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -38,11 +38,19 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "d358518a-028f-4fd0-9815-38d791fcce06"
+      }
+    },
+    "owner": "leonardocode"
   }
 }
