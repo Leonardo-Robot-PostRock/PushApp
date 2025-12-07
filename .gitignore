@@ -41,3 +41,9 @@ app-example
 # generated native folders
 /ios
 /android
+
+Expo-Push-Notifications-Firebase-Service-Account.json
+
+.env
+
+google-services.json
