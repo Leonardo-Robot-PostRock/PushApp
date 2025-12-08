@@ -1,6 +1,7 @@
 import Constants from 'expo-constants';
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
+import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Platform } from 'react-native';
 
@@ -95,7 +96,7 @@ async function registerForPushNotificationsAsync() {
 
 const usePushNotifications = () => {
     let areListenersReady: boolean = false;
-    
+
     const [expoPushToken, setExpoPushToken] = useState('');
     const [notifications, setNotifications] = useState<Notifications.Notification[]>([]);
 
@@ -118,8 +119,15 @@ const usePushNotifications = () => {
         });
 
         const responseListener = Notifications.addNotificationResponseReceivedListener(response => {
-            console.log(response);
+            // console.log(response);
+
+            const { chatId } = response.notification.request.content.data;
+
+            if (chatId) {
+                router.push(`/chat/${chatId}`)
+            }
         });
+
 
 
         return () => {
